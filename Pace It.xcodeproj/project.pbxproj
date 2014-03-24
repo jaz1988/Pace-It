@@ -21,6 +21,7 @@
 		5626D52518D4596D00933E58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5626D50718D4596C00933E58 /* UIKit.framework */; };
 		5626D52D18D4596D00933E58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5626D52B18D4596D00933E58 /* InfoPlist.strings */; };
 		5626D52F18D4596D00933E58 /* Pace_ItTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5626D52E18D4596D00933E58 /* Pace_ItTests.m */; };
+		5626D53918DED65200933E58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5626D53818DED64F00933E58 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5626D52A18D4596D00933E58 /* Pace ItTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pace ItTests-Info.plist"; sourceTree = "<group>"; };
 		5626D52C18D4596D00933E58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5626D52E18D4596D00933E58 /* Pace_ItTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pace_ItTests.m; sourceTree = "<group>"; };
+		5626D53818DED64F00933E58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5626D53918DED65200933E58 /* CoreLocation.framework in Frameworks */,
 				5626D50618D4596C00933E58 /* CoreGraphics.framework in Frameworks */,
 				5626D50818D4596C00933E58 /* UIKit.framework in Frameworks */,
 				5626D50418D4596C00933E58 /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		5626D50218D4596C00933E58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5626D53818DED64F00933E58 /* CoreLocation.framework */,
 				5626D50318D4596C00933E58 /* Foundation.framework */,
 				5626D50518D4596C00933E58 /* CoreGraphics.framework */,
 				5626D50718D4596C00933E58 /* UIKit.framework */,
@@ -378,10 +382,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Karthik Chandrasekaran (LL82K2CA2B)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pace It/Pace It-Prefix.pch";
 				INFOPLIST_FILE = "Pace It/Pace It-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BB735BDD-D442-4C0C-9313-FE96F5759051";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,10 +398,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Karthik Chandrasekaran (LL82K2CA2B)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pace It/Pace It-Prefix.pch";
 				INFOPLIST_FILE = "Pace It/Pace It-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BB735BDD-D442-4C0C-9313-FE96F5759051";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -460,6 +470,7 @@
 				5626D53418D4596D00933E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5626D53518D4596D00933E58 /* Build configuration list for PBXNativeTarget "Pace ItTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +479,7 @@
 				5626D53718D4596D00933E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
