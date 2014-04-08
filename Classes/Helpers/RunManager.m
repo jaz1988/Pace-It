@@ -28,6 +28,11 @@ static RunManager *globalRunManager = nil;
     if(!self.distances) {
         self.distances = [[NSMutableArray alloc] init];
     }
+    
+    //if no location is captured, dont save!!!
+    if(!location)
+        return;
+    
     if([self.distances count] == 0) {
         //If there are no records yet, from origin
         [self.distances addObject:[NSNumber numberWithDouble:0]];
@@ -45,7 +50,11 @@ static RunManager *globalRunManager = nil;
         self.locations = [[NSMutableArray alloc] init];
     }
     
-    [self.locations addObject:location];
+    NSLog(@"Location is %@",location);
+    
+    //Save location only if not null
+    if(location)
+        [self.locations addObject:location];
 }
 
 - (NSNumber*)calculateTotalDistances {

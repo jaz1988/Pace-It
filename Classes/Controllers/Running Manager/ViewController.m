@@ -91,10 +91,14 @@
     
     //Display at the text area
     NSNumber *distance  = [[[RunManager runManager] distances] lastObject];
-    NSString *distanceString = [distance stringValue];
-    self.textArea.text = [self.textArea.text stringByAppendingString:distanceString];
-    self.textArea.text = [self.textArea.text stringByAppendingString:@"\n"];
-    [self.textArea scrollRangeToVisible:NSMakeRange([self.textArea.text length],0)];
+    if(distance){
+        NSString *distanceString = [distance stringValue];
+        self.textArea.text = [self.textArea.text stringByAppendingString:distanceString];
+        self.textArea.text = [self.textArea.text stringByAppendingString:@"\n"];
+        [self.textArea scrollRangeToVisible:NSMakeRange([self.textArea.text length],0)];
+    }else{
+        self.textArea.text = @"Location not available";
+    }
 }
 
 @end

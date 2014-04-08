@@ -51,6 +51,7 @@ static LocationManager *globalLocationManager = nil;
     }
     else
     {
+        NSLog(@"Location not enabled");
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"SHOWLOCATIONALERT" object:nil];
     }
