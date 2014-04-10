@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LocationManager.h"
+#import "StringConstants.h"
 
 @interface RunManager : NSObject
 
@@ -15,8 +16,8 @@
 @property (strong, nonatomic) NSDate *endTime;
 @property (strong, nonatomic) NSMutableArray *locations;
 @property (strong, nonatomic) NSMutableArray *distances;
+@property (strong, nonatomic) NSMutableArray *lastRunDistances;
 
-+ (RunManager*)runManager;
 - (void)updateDistances:(CLLocation *)location;
 - (void)updateLocations:(CLLocation *)location;
 - (NSNumber*)calculateTotalDistances;

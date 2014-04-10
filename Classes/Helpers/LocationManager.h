@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "StringConstants.h"
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 

@@ -10,10 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationManager.h"
 #import "RunManager.h"
+#import "StringConstants.h"
 
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) NSTimer *timer;
-
 
 @end

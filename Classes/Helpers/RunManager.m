@@ -11,24 +11,16 @@
 @implementation RunManager
 @synthesize distances;
 
-static RunManager *globalRunManager = nil;
-
-+ (RunManager*)runManager
-{
-	if(!globalRunManager) {
-		globalRunManager = [[RunManager alloc] init];
+- (id) init {
+    self = [super init];
+    if (self) {
+        self.distances = [[NSMutableArray alloc] init];
+        self.locations = [[NSMutableArray alloc] init];
     }
-    
-    
-	return globalRunManager;
+    return self;
 }
 
 - (void)updateDistances:(CLLocation *)location {
-    
-    if(!self.distances) {
-        self.distances = [[NSMutableArray alloc] init];
-    }
-    
     //if no location is captured, dont save!!!
     if(!location)
         return;
@@ -45,11 +37,6 @@ static RunManager *globalRunManager = nil;
 }
 
 - (void)updateLocations:(CLLocation *)location {
-    
-    if(!self.locations) {
-        self.locations = [[NSMutableArray alloc] init];
-    }
-    
     NSLog(@"Location is %@",location);
     
     //Save location only if not null

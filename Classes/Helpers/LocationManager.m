@@ -71,6 +71,9 @@ static LocationManager *globalLocationManager = nil;
     
     //Stop the update
     [self stopUpdates];
+    
+    //Notify that location is retrieved, time to save data!
+    [[NSNotificationCenter defaultCenter] postNotificationName:SaveDataNotification object:nil];
 }
 
 @end

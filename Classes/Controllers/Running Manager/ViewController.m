@@ -14,12 +14,20 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    RunManager *runManager;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
+    //Initialize run manager
+    runManager = [[RunManager alloc] init];
+    
+    //Register saveData to the notification center
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveData:) name:SaveDataNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,7 +38,7 @@
 - (IBAction)start:(id)sender {
     NSLog(@"Started");
     //Start timer
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0
                                      target:self
                                    selector:@selector(startSaving)
                                    userInfo:nil
@@ -45,9 +53,6 @@
     NSLog(@"Timer");
     //Start location manager
     [[LocationManager locationManager] startUpdates];
-    
-    //Get the latest location from location manager and save it
-    [self performSelector:@selector(saveData:) withObject:nil afterDelay:1.0];
 }
 
 - (IBAction)stop:(id)sender {
@@ -59,7 +64,7 @@
     [self.timer invalidate];
     
     //Calculate the total distance
-    NSNumber* sum = [[RunManager runManager] calculateTotalDistances];
+    NSNumber* sum = [runManager calculateTotalDistances];
     
     //Print out the sum
     self.textArea.text = [self.textArea.text stringByAppendingString:@"Total distance: "];
@@ -69,28 +74,25 @@
 
 - (IBAction)listLocations:(id)sender {
      NSLog(@"list locations");
-    for(CLLocation *location in [[RunManager runManager] locations]) {
+    for(CLLocation *location in [runManager locations]) {
         NSLog(@"%@", location.description);
     }
     
-    for(NSNumber *distance in [[RunManager runManager] distances]) {
+    for(NSNumber *distance in [runManager distances]) {
         NSLog(@"%@", distance);
     }
 }
 
 - (void)saveData:(CLLocation *)location {
     //Update the distances according to new distance
-    [[RunManager runManager] updateDistances:[[LocationManager locationManager] location]];
+    [runManager updateDistances:[[LocationManager locationManager] location]];
     
     //Update the locations
     //NOTE: This must be done after the distances have been updated
-    [[RunManager runManager] updateLocations:[[LocationManager locationManager] location]];
-    
-    //stop location manager
-    [[LocationManager locationManager] stopUpdates];
+    [runManager updateLocations:[[LocationManager locationManager] location]];
     
     //Display at the text area
-    NSNumber *distance  = [[[RunManager runManager] distances] lastObject];
+    NSNumber *distance  = [[runManager distances] lastObject];
     if(distance){
         NSString *distanceString = [distance stringValue];
         self.textArea.text = [self.textArea.text stringByAppendingString:distanceString];
