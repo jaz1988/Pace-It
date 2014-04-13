@@ -6,70 +6,32 @@
 //  Copyright (c) 2014 UsefulApps. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RootViewController.h"
 
-@interface ViewController ()
+@interface RootViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *textArea;
 
 @end
 
-@implementation ViewController {
+@implementation RootViewController {
     RunManager *runManager;
 }
 
-- (void) compareDistances {
-    //Compare the current run with the last
-    int result = [runManager compareDistance];
-    NSLog(@"Compared Distance: %d", result);
-}
-
-- (void) updateDistances {
-    //Update location and distance
-    [self updateData];
-    
-    //Display the distances
-    [self displayDistance];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [UIApplication sharedApplication].idleTimerDisabled = YES;
-    
-    //Set delegate at location manager
-    [LocationManager locationManager].delegate = self;
-    
-    //Initialize run manager
-    runManager = [[RunManager alloc] init];
-    
-    //Register saveData to the notification center
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveData) name:SaveDataNotification object:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
+#pragma mark
+#pragma mark IBAction
 
 - (IBAction)start:(id)sender {
     NSLog(@"Started");
     //Start timer
     self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0
-                                     target:self
-                                   selector:@selector(startSaving)
-                                   userInfo:nil
-                                    repeats:YES];
+                                                  target:self
+                                                selector:@selector(startSaving)
+                                                userInfo:nil
+                                                 repeats:YES];
     
     //Start it immediately without waiting for the time interval to capture first location (origin)
     [self.timer fire];
-}
-
-//This method is invoked every Time Interval according to NSTimer configurations
-- (void) startSaving {
-    NSLog(@"Timer");
-    //Start location manager
-    [[LocationManager locationManager] startUpdates];
 }
 
 - (IBAction)stop:(id)sender {
@@ -90,7 +52,7 @@
 }
 
 - (IBAction)listLocations:(id)sender {
-     NSLog(@"list locations");
+    NSLog(@"list locations");
     for(CLLocation *location in [runManager locations]) {
         NSLog(@"%@", location.description);
     }
@@ -99,6 +61,56 @@
         NSLog(@"%@", distance);
     }
 }
+
+#pragma mark
+#pragma mark views
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
+    //Set delegate at location manager
+    [LocationManager locationManager].delegate = self;
+    
+    //Initialize run manager
+    runManager = [[RunManager alloc] init];
+    
+    //Register saveData to the notification center
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveData) name:SaveDataNotification object:nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark
+#pragma mark protocol implementations
+
+- (void) compareDistances {
+    //Compare the current run with the last
+    int result = [runManager compareDistance];
+    NSLog(@"Compared Distance: %d", result);
+}
+
+- (void) updateDistances {
+    //Update location and distance
+    [self updateData];
+    
+    //Display the distances
+    [self displayDistance];
+}
+
+#pragma mark
+#pragma mark data control
+
+//This method is invoked every Time Interval according to NSTimer configurations
+- (void) startSaving {
+    NSLog(@"Timer");
+    //Start location manager
+    [[LocationManager locationManager] startUpdates];
+}
+
 
 - (void)updateData {
     //Update the distances according to new distance

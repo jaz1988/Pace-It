@@ -12,7 +12,7 @@
 #import "RunManager.h"
 #import "StringConstants.h"
 
-@interface ViewController : UIViewController <DistanceDelegate>
+@interface RootViewController : UIViewController <DistanceDelegate>
 
 @property (strong, nonatomic) NSTimer *timer;
 

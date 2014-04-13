@@ -22,8 +22,9 @@
 		5673B23E18F192E900B40562 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5673B23D18F192E900B40562 /* LocationManager.m */; };
 		5673B24418F1A47700B40562 /* RunManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5673B24318F1A47700B40562 /* RunManager.m */; };
 		5673B24718F6D23600B40562 /* StringConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5673B24618F6D23600B40562 /* StringConstants.m */; };
+		5673B24B18FAC86F00B40562 /* RunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5673B24A18FAC86F00B40562 /* RunViewController.m */; };
+		5673B24E18FACCDE00B40562 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5673B24D18FACCDE00B40562 /* RootViewController.m */; };
 		56CF364A18E06B7A00629C66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF364818E06B7A00629C66 /* AppDelegate.m */; };
-		56CF364D18E06B8700629C66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF364C18E06B8700629C66 /* ViewController.m */; };
 		56CF364F18E06CC900629C66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF364E18E06CC900629C66 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -60,10 +61,12 @@
 		5673B24518F6D23600B40562 /* StringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringConstants.h; path = Classes/Helpers/StringConstants.h; sourceTree = "<group>"; };
 		5673B24618F6D23600B40562 /* StringConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringConstants.m; path = Classes/Helpers/StringConstants.m; sourceTree = "<group>"; };
 		5673B24818FA9E0800B40562 /* DistanceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistanceDelegate.h; path = Classes/Helpers/DistanceDelegate.h; sourceTree = "<group>"; };
+		5673B24918FAC86F00B40562 /* RunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunViewController.h; path = Classes/Controllers/RunViewController.h; sourceTree = "<group>"; };
+		5673B24A18FAC86F00B40562 /* RunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunViewController.m; path = Classes/Controllers/RunViewController.m; sourceTree = "<group>"; };
+		5673B24C18FACCDE00B40562 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = "Classes/Controllers/Application Controllers/RootViewController.h"; sourceTree = "<group>"; };
+		5673B24D18FACCDE00B40562 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = "Classes/Controllers/Application Controllers/RootViewController.m"; sourceTree = "<group>"; };
 		56CF364718E06B7A00629C66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Classes/Controllers/Application Controllers/AppDelegate.h"; sourceTree = "<group>"; };
 		56CF364818E06B7A00629C66 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Classes/Controllers/Application Controllers/AppDelegate.m"; sourceTree = "<group>"; };
-		56CF364B18E06B8700629C66 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "Classes/Controllers/Running Manager/ViewController.h"; sourceTree = "<group>"; };
-		56CF364C18E06B8700629C66 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "Classes/Controllers/Running Manager/ViewController.m"; sourceTree = "<group>"; };
 		56CF364E18E06CC900629C66 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Classes/Controllers/Application Controllers/main.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,8 +242,10 @@
 		56CF364518E06B5E00629C66 /* Running Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				56CF364B18E06B8700629C66 /* ViewController.h */,
-				56CF364C18E06B8700629C66 /* ViewController.m */,
+				5673B24C18FACCDE00B40562 /* RootViewController.h */,
+				5673B24D18FACCDE00B40562 /* RootViewController.m */,
+				5673B24918FAC86F00B40562 /* RunViewController.h */,
+				5673B24A18FAC86F00B40562 /* RunViewController.m */,
 			);
 			name = "Running Controllers";
 			sourceTree = "<group>";
@@ -343,10 +348,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5673B24718F6D23600B40562 /* StringConstants.m in Sources */,
+				5673B24E18FACCDE00B40562 /* RootViewController.m in Sources */,
 				5673B23E18F192E900B40562 /* LocationManager.m in Sources */,
-				56CF364D18E06B8700629C66 /* ViewController.m in Sources */,
 				56CF364F18E06CC900629C66 /* main.m in Sources */,
 				5673B24418F1A47700B40562 /* RunManager.m in Sources */,
+				5673B24B18FAC86F00B40562 /* RunViewController.m in Sources */,
 				56CF364A18E06B7A00629C66 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
