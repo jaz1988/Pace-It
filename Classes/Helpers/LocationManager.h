@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "StringConstants.h"
+#import "DistanceDelegate.h"
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 
+@property (assign) id<DistanceDelegate> delegate;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) NSDate *locationManagerStartDate;
 @property (strong, nonatomic) CLLocation *location;

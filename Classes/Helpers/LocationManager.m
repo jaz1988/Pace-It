@@ -73,7 +73,11 @@ static LocationManager *globalLocationManager = nil;
     [self stopUpdates];
     
     //Notify that location is retrieved, time to save data!
-    [[NSNotificationCenter defaultCenter] postNotificationName:SaveDataNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:SaveDataNotification object:nil];
+    
+    //Assessing DistanceDelegate protocol
+    [self.delegate updateDistances];
+    [self.delegate compareDistances];
 }
 
 @end

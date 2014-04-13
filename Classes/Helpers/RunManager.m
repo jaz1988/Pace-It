@@ -16,6 +16,15 @@
     if (self) {
         self.distances = [[NSMutableArray alloc] init];
         self.locations = [[NSMutableArray alloc] init];
+        
+        //Mock data only, should be fetched from database
+        self.lastRunDistances = [[NSMutableArray alloc] init];
+        [self.lastRunDistances addObject:[NSNumber numberWithDouble:20]];
+        [self.lastRunDistances addObject:[NSNumber numberWithDouble:25]];
+        [self.lastRunDistances addObject:[NSNumber numberWithDouble:30]];
+        [self.lastRunDistances addObject:[NSNumber numberWithDouble:0]];
+        [self.lastRunDistances addObject:[NSNumber numberWithDouble:30]];
+        [self.lastRunDistances addObject:[NSNumber numberWithDouble:0]];
     }
     return self;
 }
@@ -25,8 +34,8 @@
     if(!location)
         return;
     
-    if([self.distances count] == 0) {
-        //If there are no records yet, from origin
+    //If there are no records yet, from origin
+    if([self.distances count] == 0 ) {
         [self.distances addObject:[NSNumber numberWithDouble:0]];
     }
     else {
@@ -46,6 +55,25 @@
 
 - (NSNumber*)calculateTotalDistances {
     return [self.distances valueForKeyPath: @"@sum.self"];
+}
+
+//Method to compare the distance from previous run and current run
+- (int)compareDistance {
+    //Since comparing is only done after saving the current run distance, get the count - 1 as the index
+    int index = [self.distances count] - 1;
+    
+    //Previous run distance at current index
+    NSNumber *lastDistance = [self.lastRunDistances objectAtIndex:index];
+    
+    //Compare with the current distance
+    if([[self.distances lastObject] doubleValue] < [lastDistance doubleValue]) {
+        //current distance lesser than previous -> slower pace
+        return 0;
+    }
+    else {
+        //either equal distance of more than previous -> improved or maintained pace
+        return 1;
+    }
 }
 
 @end

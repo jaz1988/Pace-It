@@ -18,16 +18,33 @@
     RunManager *runManager;
 }
 
+- (void) compareDistances {
+    //Compare the current run with the last
+    int result = [runManager compareDistance];
+    NSLog(@"Compared Distance: %d", result);
+}
+
+- (void) updateDistances {
+    //Update location and distance
+    [self updateData];
+    
+    //Display the distances
+    [self displayDistance];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
+    //Set delegate at location manager
+    [LocationManager locationManager].delegate = self;
+    
     //Initialize run manager
     runManager = [[RunManager alloc] init];
     
     //Register saveData to the notification center
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveData:) name:SaveDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveData) name:SaveDataNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,14 +100,16 @@
     }
 }
 
-- (void)saveData:(CLLocation *)location {
+- (void)updateData {
     //Update the distances according to new distance
     [runManager updateDistances:[[LocationManager locationManager] location]];
     
     //Update the locations
     //NOTE: This must be done after the distances have been updated
     [runManager updateLocations:[[LocationManager locationManager] location]];
-    
+}
+
+- (void)displayDistance {
     //Display at the text area
     NSNumber *distance  = [[runManager distances] lastObject];
     if(distance){

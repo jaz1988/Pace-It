@@ -10,6 +10,13 @@
 #import "LocationManager.h"
 #import "StringConstants.h"
 
+@protocol RunManagerDelegate <NSObject>
+
+- (void) compareDistances;
+- (void) updateDistances;
+
+@end
+
 @interface RunManager : NSObject
 
 @property (strong, nonatomic) NSDate *startTime;
@@ -21,5 +28,6 @@
 - (void)updateDistances:(CLLocation *)location;
 - (void)updateLocations:(CLLocation *)location;
 - (NSNumber*)calculateTotalDistances;
+- (int)compareDistance;
 
 @end
