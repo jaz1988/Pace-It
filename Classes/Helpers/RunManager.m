@@ -29,6 +29,14 @@
     return self;
 }
 
+/*need to have a method to return distance from the previous location,
+so that distance can be saved in database along with location
+
+ - need to have a variable to store last known location
+ - distance can be calculated using 
+    [currentLocation distanceFromLocation:lastKnownLocation]
+ */
+
 - (void)updateDistances:(CLLocation *)location {
     //if no location is captured, dont save!!!
     if(!location)
@@ -43,6 +51,7 @@
         //Calculate the distance between current location and last saved location
         [self.distances addObject:[NSNumber numberWithDouble:[location distanceFromLocation:self.locations.lastObject]]];
     }
+    
 }
 
 - (void)updateLocations:(CLLocation *)location {
