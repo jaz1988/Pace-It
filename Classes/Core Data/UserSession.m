@@ -2,7 +2,7 @@
 //  UserSession.m
 //  Pace It
 //
-//  Created by Saran Babu on 16/4/14.
+//  Created by Saran on 17/4/14.
 //  Copyright (c) 2014 UsefulApps. All rights reserved.
 //
 
@@ -12,7 +12,8 @@
 @implementation UserSession
 
 @dynamic averageSpeed;
-@dynamic date;
+@dynamic startDate;
 @dynamic totalDistance;
+@dynamic endDate;
 
 @end

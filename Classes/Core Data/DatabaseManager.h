@@ -11,6 +11,6 @@
 
 @interface DatabaseManager : NSObject
 
-- (void)saveDistanceAndLocation:(CLLocation *)location;
+- (void)saveUserSession:(NSDictionary*) sessionDictionary;
 
 @end

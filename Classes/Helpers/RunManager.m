@@ -37,6 +37,8 @@ so that distance can be saved in database along with location
     [currentLocation distanceFromLocation:lastKnownLocation]
  */
 
+
+
 - (void)updateDistances:(CLLocation *)location {
     //if no location is captured, dont save!!!
     if(!location)

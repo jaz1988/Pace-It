@@ -26,6 +26,10 @@
 		5673B24E18FACCDE00B40562 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5673B24D18FACCDE00B40562 /* RootViewController.m */; };
 		56CF364A18E06B7A00629C66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF364818E06B7A00629C66 /* AppDelegate.m */; };
 		56CF364F18E06CC900629C66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF364E18E06CC900629C66 /* main.m */; };
+		56E09ADA18FFB63B004DFE9E /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E09AD518FFB63B004DFE9E /* DatabaseManager.m */; };
+		56E09ADF18FFBD64004DFE9E /* coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56E09ADD18FFBD64004DFE9E /* coredata.xcdatamodeld */; };
+		56E09AE818FFCF15004DFE9E /* SessionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E09AE718FFCF15004DFE9E /* SessionDetails.m */; };
+		56E09AEB18FFCF16004DFE9E /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E09AEA18FFCF16004DFE9E /* UserSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,13 @@
 		56CF364718E06B7A00629C66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Classes/Controllers/Application Controllers/AppDelegate.h"; sourceTree = "<group>"; };
 		56CF364818E06B7A00629C66 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Classes/Controllers/Application Controllers/AppDelegate.m"; sourceTree = "<group>"; };
 		56CF364E18E06CC900629C66 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Classes/Controllers/Application Controllers/main.m"; sourceTree = "<group>"; };
+		56E09AD418FFB63B004DFE9E /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "Classes/Core Data/DatabaseManager.h"; sourceTree = "<group>"; };
+		56E09AD518FFB63B004DFE9E /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "Classes/Core Data/DatabaseManager.m"; sourceTree = "<group>"; };
+		56E09ADE18FFBD64004DFE9E /* coredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coredata.xcdatamodel; sourceTree = "<group>"; };
+		56E09AE618FFCF15004DFE9E /* SessionDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionDetails.h; path = "Classes/Core Data/SessionDetails.h"; sourceTree = "<group>"; };
+		56E09AE718FFCF15004DFE9E /* SessionDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionDetails.m; path = "Classes/Core Data/SessionDetails.m"; sourceTree = "<group>"; };
+		56E09AE918FFCF16004DFE9E /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSession.h; path = "Classes/Core Data/UserSession.h"; sourceTree = "<group>"; };
+		56E09AEA18FFCF16004DFE9E /* UserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSession.m; path = "Classes/Core Data/UserSession.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +186,7 @@
 		56CF363A18E0679E00629C66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				56E09AD318FFB623004DFE9E /* Core Data */,
 				56CF363C18E067AD00629C66 /* Controllers */,
 				56CF363B18E067A500629C66 /* Helpers */,
 				56CF363F18E067D600629C66 /* Models */,
@@ -248,6 +260,20 @@
 				5673B24A18FAC86F00B40562 /* RunViewController.m */,
 			);
 			name = "Running Controllers";
+			sourceTree = "<group>";
+		};
+		56E09AD318FFB623004DFE9E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				56E09ADD18FFBD64004DFE9E /* coredata.xcdatamodeld */,
+				56E09AE918FFCF16004DFE9E /* UserSession.h */,
+				56E09AEA18FFCF16004DFE9E /* UserSession.m */,
+				56E09AE618FFCF15004DFE9E /* SessionDetails.h */,
+				56E09AE718FFCF15004DFE9E /* SessionDetails.m */,
+				56E09AD418FFB63B004DFE9E /* DatabaseManager.h */,
+				56E09AD518FFB63B004DFE9E /* DatabaseManager.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,11 +373,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E09ADF18FFBD64004DFE9E /* coredata.xcdatamodeld in Sources */,
 				5673B24718F6D23600B40562 /* StringConstants.m in Sources */,
 				5673B24E18FACCDE00B40562 /* RootViewController.m in Sources */,
 				5673B23E18F192E900B40562 /* LocationManager.m in Sources */,
 				56CF364F18E06CC900629C66 /* main.m in Sources */,
+				56E09ADA18FFB63B004DFE9E /* DatabaseManager.m in Sources */,
 				5673B24418F1A47700B40562 /* RunManager.m in Sources */,
+				56E09AE818FFCF15004DFE9E /* SessionDetails.m in Sources */,
+				56E09AEB18FFCF16004DFE9E /* UserSession.m in Sources */,
 				5673B24B18FAC86F00B40562 /* RunViewController.m in Sources */,
 				56CF364A18E06B7A00629C66 /* AppDelegate.m in Sources */,
 			);
@@ -581,6 +611,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56E09ADD18FFBD64004DFE9E /* coredata.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56E09ADE18FFBD64004DFE9E /* coredata.xcdatamodel */,
+			);
+			currentVersion = 56E09ADE18FFBD64004DFE9E /* coredata.xcdatamodel */;
+			path = coredata.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5626D4F818D4596B00933E58 /* Project object */;
 }
